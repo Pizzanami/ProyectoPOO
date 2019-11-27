@@ -1,4 +1,6 @@
 public class Juego{
-  Juego(){};
-  void ejecutar(){};
+  
+  Juego(){}
+  void ejecutar(){}
+  
 }
