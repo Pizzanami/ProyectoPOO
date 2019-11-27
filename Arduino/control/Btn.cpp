@@ -1,10 +1,8 @@
 #include "Btn.h"
-
 /*
 Robotica Golem
 Victor Yoguel Salazar Alanis
 */
-
 Btn::Btn(byte port):port(port){
   pinMode(port, INPUT_PULLUP);
   reset();
@@ -44,21 +42,21 @@ void Btn::check(){
   }
 }
 
-bool Btn::isLongPressed(){
+uint8_t Btn::isLongPressed(){
   if(!checked)
     if(timePressed >= MILLIS_FOR_LONG_PRESSED){
       checked = true;
-      return true;
+      return 3;
     }
-  return false;
+  return 0;
 }
 
-bool Btn::isShortPressed(){
+uint8_t Btn::isShortPressed(){
   if(!isPressed())
     if(!checked)
       if(timePressed < MILLIS_FOR_LONG_PRESSED){
         checked = true;
-        return true;//timePressed > MILLIS_FOR_SHORT_PRESSED;
+        return 2;//timePressed > MILLIS_FOR_SHORT_PRESSED;
       }
-  return false;
+  return 0;
 }

@@ -27,5 +27,4 @@ public:
 	bool isShortPressed();
 	void reset(); //resetea el chequeo
 };
-
 #endif
