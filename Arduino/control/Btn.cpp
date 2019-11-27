@@ -1,17 +1,64 @@
 #include "Btn.h"
 
-Btn::Btn(uint8_t pin): pin(pin) {
-  pinMode(pin, INPUT_PULLUP);
+/*
+Robotica Golem
+Victor Yoguel Salazar Alanis
+*/
+
+Btn::Btn(byte port):port(port){
+  pinMode(port, INPUT_PULLUP);
+  reset();
 }
 
-uint8_t Btn::isPressed() {
-  activo = digitalRead(pin);
-milliSecs=pulseInLong(pin, LOW);
-    Serial.println(milliSecs);
-    if (milliSecs < 1000) {
-      return 2;
+bool Btn::isPressed(){
+  return !digitalRead(port);
+}
+
+void Btn::reset(){
+  wasPressed = false;
+  checked = true;
+  timePressed = 0;
+  time = 0;
+}
+
+void Btn::check(){
+  if(isPressed()){
+
+    if(checked && timePressed >= MILLIS_FOR_LONG_PRESSED){
+      return;
     }
+
+    if(wasPressed){
+      timePressed = millis() - time;
+    } 
     else {
-      return 1;
+      time = millis();
     }
+    wasPressed = true;
+    checked = false;
   }
+  else {
+    if(checked)
+      timePressed = 0;
+    wasPressed = false;
+  }
+}
+
+bool Btn::isLongPressed(){
+  if(!checked)
+    if(timePressed >= MILLIS_FOR_LONG_PRESSED){
+      checked = true;
+      return true;
+    }
+  return false;
+}
+
+bool Btn::isShortPressed(){
+  if(!isPressed())
+    if(!checked)
+      if(timePressed < MILLIS_FOR_LONG_PRESSED){
+        checked = true;
+        return true;//timePressed > MILLIS_FOR_SHORT_PRESSED;
+      }
+  return false;
+}
