@@ -1,10 +1,13 @@
 #include "Btn.h"
 #include "Pot.h"
-Btn pot1(2);
+Pot pot1(A0);
+Pot pot2(A1);
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  pot1.isPressed();
+  Serial.print(pot1.valor());
+  Serial.print("\t");
+  Serial.println(pot2.valor());
 }

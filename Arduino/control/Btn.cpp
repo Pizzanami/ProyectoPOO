@@ -6,7 +6,7 @@ Btn::Btn(uint8_t pin): pin(pin) {
 
 uint8_t Btn::isPressed() {
   activo = digitalRead(pin);
-milliSecs=pulseIn(pin, HIGH);
+milliSecs=pulseInLong(pin, LOW);
     Serial.println(milliSecs);
     if (milliSecs < 1000) {
       return 2;
