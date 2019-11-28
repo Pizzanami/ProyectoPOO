@@ -9,9 +9,10 @@ void setup() {
 
 void loop() {
 	boton.check();
-	
-  Serial.print("\t");
   Serial.print(pot1.valor());
   Serial.print("\t");
-  Serial.println(pot2.valor());
+  Serial.print(pot2.valor());
+  Serial.print("\t");
+  Serial.print(boton.printit());
+  Serial.println("\t");
 }

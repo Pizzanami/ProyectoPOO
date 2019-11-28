@@ -26,5 +26,6 @@ public:
 	bool isLongPressed();
 	bool isShortPressed();
 	void reset(); //resetea el chequeo
+  uint8_t printit();
 };
 #endif
