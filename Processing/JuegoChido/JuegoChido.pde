@@ -1,7 +1,7 @@
 Juego juego = new Juego();
 Menu menu = new Menu();
 void setup(){
-    size(700, 500);
+    fullScreen();
 }
 void draw(){
   menu.ejecutar();
