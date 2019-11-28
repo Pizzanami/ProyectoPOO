@@ -8,5 +8,4 @@ public class Runner{
     this.y = y;
     this.f = f;
   }
-  private 
 }
