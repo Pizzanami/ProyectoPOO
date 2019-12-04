@@ -1,3 +1,4 @@
+    this.h = h;
 public class Runner{
   private int w, h, f; 
   private float x, y;
