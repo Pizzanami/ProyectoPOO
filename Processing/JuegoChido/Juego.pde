@@ -1,8 +1,9 @@
 public class Juego{
-  Obstaculo  a[5];
+  //Obstaculo  a[3];
   Juego(){
-    
   }
   void ejecutar(){
+    
   }
+  
 }
