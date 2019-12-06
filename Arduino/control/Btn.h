@@ -15,17 +15,12 @@ class Btn
 {
 private:
 	const byte port; 
-	long long time; //momento en el que se presiono
-	int timePressed; //cuanto ttempo duro presonado
-	bool wasPressed; //si en la iteracion anterior estaba presionado
-	bool checked; //si ya fue checado el presionado
+	int tiempoBtn; //cuanto ttempo duro presonado
+bool listo=true;
 public:
 	Btn(byte port);
 	bool isPressed();
-	void check();
-	bool isLongPressed();
-	bool isShortPressed();
+	int check();
 	void reset(); //resetea el chequeo
-  uint8_t printit();
 };
 #endif
