@@ -2,7 +2,7 @@ public class Arduino{
 //extends Serial;
 private String valor;
   import processing.serial.*;
-public String[] list=new String [3];
+private String[] list=new String [3];
 Arduino(){
   printArray(Serial.list());
   // Open the port you are using at the rate you want:
@@ -12,9 +12,15 @@ void leer(){
 if (myPort.available() > 0 ) {
     valor = myPort.readString();
      list = split(valor, ",");
-    for(int i =0; i<3 ; i++){
-    println(list[i]);
-
-    }}
+}
+}
+public int getPotenciometroIzq(){
+  return int(list[0]);
+}
+public int getPotenciometroDer(){
+  return int(list[1]);
+}
+public int getBoton(){
+  return int(list[2]);
 }
 }
