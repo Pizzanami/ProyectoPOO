@@ -3,18 +3,10 @@ public class Obstaculo{
   float h, w;
   int r, g, b, id;
   Obstaculo(int id){
-    h = random(height/15.0, height/4.0);
-    w = random(width/20.0, width/2.0);
-    if(id == 1){
-      h = height/15.0;
-      w = width/20.0;
-    }
-    if(id == 2){
-      h = height/4.0;
-      w = width/2.0;
-    }
+    h = random(height/12.0, height/6.0);
+    w = random(width/15.0, width/3.0);
     x = random(width - w);
-    y = -h;
+    y = -h-210*id;
     r = int(random(0, 255));
     g = int(random(0, 255));
     b = int(random(0, 255));
@@ -28,8 +20,8 @@ public class Obstaculo{
       reset();
   }
   void reset(){
-    h = random(height/4.0);
-    w = random(width/2.0);
+    h = random(height/12.0, height/6.0);
+    w = random(width/15.0, width/3.0);
     x = random(width - w);
     y = -h;
     r = int(random(0, 255));
