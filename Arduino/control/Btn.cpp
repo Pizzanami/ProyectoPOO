@@ -4,8 +4,8 @@ Btn::Btn(byte port): port(port) {
   reset();
 }
 
-Btn::Btn(uint8_t pin): pin(pin) {
-  pinMode(pin, INPUT_PULLUP);
+bool Btn::isPressed(){
+  return !digitalRead(port);  
 }
 
 void Btn::reset() {
