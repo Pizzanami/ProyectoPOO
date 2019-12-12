@@ -2,6 +2,7 @@ public class Menu {
 
   public int vid =1;
   int cuadros=1;
+  float sanic=1.0;
   String noVideo;
 
   Menu() {
@@ -9,7 +10,7 @@ public class Menu {
   void ejecutar()
   {
     movie.loop();
-    movie.speed(1.0);  
+    movie.speed(sanic);  
     imageMode(CENTER);
     dibujaM();
     grid();
@@ -35,6 +36,21 @@ public class Menu {
     {  
       if (cuadros>1)
         cuadros--;
+    }
+  }
+  void speed() {
+    if (key=='W'||key=='w')
+    {
+      if (sanic<=1.8)
+      {
+        sanic=sanic+0.1;
+      }
+    } else if (key=='S'||key=='s')
+    {  
+      if (sanic>=0.1)
+      {
+        sanic=sanic-0.1;
+      }
     }
   }
 

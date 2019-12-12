@@ -3,7 +3,7 @@ import processing.video.*;
 static Movie movie; 
 static Movie tranz; 
 static Serial myPort; 
-Juego juego = new Juego();
+Juego juego;
 Menu menu = new Menu();
 Arduino controles = new Arduino();
 String video;
@@ -12,11 +12,12 @@ void setup(){
   movie= new Movie(this, "../../../Videos/data/1.mov");
   tranz= new Movie(this,"../../../Videos/data/A.mov"); 
   fullScreen();
+  juego = new Juego();
 }
 void draw(){
   background(0);
-  menu.ejecutar();
-  //juego.ejecutar();
+  //menu.ejecutar();
+  juego.ejecutar();
   //controles.leer();
 }
 void chngVideo(String video){
@@ -32,4 +33,5 @@ void mousePressed(){
 }
 void keyPressed(){
   menu.plusPlus();
+  menu.speed();
 }

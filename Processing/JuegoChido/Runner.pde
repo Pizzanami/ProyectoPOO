@@ -11,8 +11,8 @@ public class Runner{
       x = width/4;
     else
       x = (width*3)/4;
-    y = height - d;
     d = width/20.0;
+    y = height - d;
     r = int(random(60, 255));
     g = int(random(60, 255));
     b = int(random(60, 255));
@@ -38,16 +38,15 @@ public class Runner{
     mover();
   }
   public void mover(){
-    /*
-    if(nx != valor del potenciometro*width/1024)
-      nx = valor del potenciometro*width/1024
-    x += (nx-x)/5.0
-    */
+    
+    //if(nx != valor del potenciometro*width/1024)
+      nx = random(0,1024)*width/1024;
+    x += (nx-x)/5.0;
   }
   public float enX(int id){
-    return 0;//cx[id]+x;
+    return -cx[id]+x;
   }
   public float enY(int id){
-    return 0;//cy[id]+y;
+    return -cy[id]+y;
   }
 }
