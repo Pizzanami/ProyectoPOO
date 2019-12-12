@@ -11,33 +11,35 @@ bool Btn::isPressed() {
 void Btn::reset() {
   listo = true;
   tiempoBtn = 0;
+  tiempoMostrando = 0;
 }
 
 int Btn::check() {
   if(listo){
-  if (isPressed()) {
-    listo = false;
-    tiempoBtn = millis();
-
-  }
-  return 0;
-  }
-  if(!listo){
-  if (!isPressed()) {
-    
-    if (millis() - tiempoBtn < 2000) {
-      return 1;
+    if(millis()<tiempoMostrando)
+      return last;
+    if (isPressed()) {
+      listo = false;
+      tiempoBtn = millis();
     }
-
-  listo = true;
+    return 0;
   }
-  else{
-    if (millis() - tiempoBtn > 2000) {
-      return 2;
+  else {
+    tiempoMostrando = millis()+100;
+    if (!isPressed()) {
+      listo = true;
+      if (millis() - tiempoBtn < 300) {
+        last = 1;
+        return 1;
+      }
+      else {
+        last = 2;
+        return 2; 
+      }
     }
     else{
+      last = 0;
       return 0;
     }
-  }
   }
 }

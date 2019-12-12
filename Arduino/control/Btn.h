@@ -16,6 +16,8 @@ class Btn
 private:
 	const byte port; 
 	int tiempoBtn; //cuanto ttempo duro presonado
+  int tiempoMostrando;
+  int last;
 bool listo=true;
 public:
 	Btn(byte port);
