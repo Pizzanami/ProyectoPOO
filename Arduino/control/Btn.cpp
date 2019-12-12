@@ -1,10 +1,4 @@
 #include "Btn.h"
-bool isLong;
-bool isShort;
-/*
-  Robotica Golem
-  Victor Yoguel Salazar Alanis
-*/
 Btn::Btn(byte port): port(port) {
   pinMode(port, INPUT_PULLUP);
   reset();
@@ -15,61 +9,35 @@ bool Btn::isPressed() {
 }
 
 void Btn::reset() {
-  wasPressed = false;
-  checked = true;
-  timePressed = 0;
-  time = 0;
+  listo = true;
+  tiempoBtn = 0;
 }
 
-void Btn::check() {
+int Btn::check() {
+  if(listo){
   if (isPressed()) {
+    listo = false;
+    tiempoBtn = millis();
 
-    if (checked && timePressed >= MILLIS_FOR_LONG_PRESSED) {
-      return;
+  }
+  return 0;
+  }
+  if(!listo){
+  if (!isPressed()) {
+    
+    if (millis() - tiempoBtn < 2000) {
+      return 1;
     }
 
-    if (wasPressed) {
-      timePressed = millis() - time;
+  listo = true;
+  }
+  else{
+    if (millis() - tiempoBtn > 2000) {
+      return 2;
     }
-    else {
-      time = millis();
+    else{
+      return 0;
     }
-    wasPressed = true;
-    checked = false;
   }
-  else {
-    if (checked)
-      timePressed = 0;
-    wasPressed = false;
-  }
-}
-
-bool Btn::isLongPressed() {
-  if (!checked)
-    if (timePressed >= MILLIS_FOR_LONG_PRESSED) {
-      checked = true;
-      return true;
-    }
-  return false;
-}
-
-bool Btn::isShortPressed() {
-  if (!isPressed())
-    if (!checked)
-      if (timePressed < MILLIS_FOR_LONG_PRESSED) {
-        checked = true;
-        return true;//timePressed > MILLIS_FOR_SHORT_PRESSED;
-      }
-  return false;
-}
-uint8_t Btn::printit() {
-  if (isShortPressed()) {
-    return 1;
-  }
-  else if (isLongPressed()) {
-    return 2;
-  }
-  else {
-    return 0;
   }
 }
