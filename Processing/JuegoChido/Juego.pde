@@ -10,11 +10,26 @@ public class Juego{
     player[0] = new Runner(0);
     player[1] = new Runner(1);
   }
-  void ejecutar(){
+  public void ejecutar(){
     dibuja();
-    chocar();
+    if(chocar() == 0){
+      fill(255);
+      rect(width/3.0, height/3.0, width/3.0, height/3.0);
+      fill(0);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("Gano el jugador 2",width/3.0, height/3.0);
+    }
+    if(chocar() == 1){
+      fill(255);
+      rect(width/3.0, height/3.0, width/3.0, height/3.0);
+      fill(0);
+      textSize(30);
+      textAlign(CENTER, CENTER);
+      text("Gano el jugador 1",width/3.0, height/3.0);
+    }
   }
-  void dibuja(){
+  public void dibuja(){
     for(int i = 0; i < 4; i++){
       a[i].dib();
     }
@@ -22,7 +37,21 @@ public class Juego{
     player[1].dibuja();
   }
   
-  void chocar(){
-    //if(choco())
+  private int chocar(){
+     for(int i = 0; i < 4; i++){
+      for(int id = 0; id < 5; id++){
+        if(a[i].dentro(player[0].enX(id), player[0].enY(id))){
+          return 0;
+        }
+      }
+    }
+    for(int i = 0; i < 4; i++){
+      for(int id = 0; id < 5; id++){
+        if(a[i].dentro(player[1].enX(id), player[1].enY(id))){
+          return 1;
+        } 
+      }
+    }
+    return 2;
   }
 }

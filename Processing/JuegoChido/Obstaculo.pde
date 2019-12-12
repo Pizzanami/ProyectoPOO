@@ -36,4 +36,9 @@ public class Obstaculo{
       w = width/2.0;
     }
   }
+  boolean dentro(float xp, float yp){
+    if(xp >= x && xp <= x+w && yp >= y && yp <= y+h)
+      return true;
+    return false;
+  }
 }
