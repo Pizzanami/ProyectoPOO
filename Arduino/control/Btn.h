@@ -1,16 +1,6 @@
-/*
-Robotica Golem
-Victor Yoguel Salazar Alanis
-*/
-
 #ifndef BTN_H
-#define BTN_H 1
-
-#define MILLIS_FOR_LONG_PRESSED 1000
-#define MILLIS_FOR_SHORT_PRESSED 0
-
+#define BTN_H
 #include <Arduino.h>
-
 class Btn
 {
 private:

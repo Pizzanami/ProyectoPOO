@@ -19,18 +19,16 @@ void draw(){
   //juego.ejecutar();
   //controles.leer();
 }
-void chngVideo(String video)
-{
+void chngVideo(String video){
   movie = new Movie(this,video);
   movie.loop();
 }
 
 void movieEvent(Movie movie) {  
-    movie.read();
+  movie.read();
 }
-void mousePressed()
-{
- menu.newVideo(); 
+void mousePressed(){
+  menu.newVideo(); 
 }
 void keyPressed(){
   menu.plusPlus();
