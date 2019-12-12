@@ -28,7 +28,7 @@ void mousePressed()
   movie.stop();
   tranz.loop();
   image(tranz,width/2-486, height/2-360,972,720);
-  vid=int(random(1,215));
+  vid=int(random(2,215));
   movie = new Movie(this, str(vid)+".mov");
   movie.loop();
 }
