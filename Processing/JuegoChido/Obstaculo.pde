@@ -1,6 +1,6 @@
 public class Obstaculo{
   float x, y;
-  float h, w;
+  float h, w, v;
   int r, g, b, id;
   Obstaculo(int id){
     h = random(height/12.0, height/6.0);
@@ -10,9 +10,11 @@ public class Obstaculo{
     r = int(random(0, 255));
     g = int(random(0, 255));
     b = int(random(0, 255));
+    v = 5;
   }
   void dib(){
-    y += 5;
+    y += v;
+    v += 0.005;
     fill(r, g, b);
     rectMode(CORNER);
     rect(x, y, w, h);

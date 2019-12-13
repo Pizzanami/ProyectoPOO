@@ -2,8 +2,9 @@ public class Juego{
   Obstaculo a[];
   Runner player[];
   PImage fondo;
-  int time = 20;
+  int time;
   Juego(){
+    time = 20;
     a = new Obstaculo[4];
     player = new Runner[2];
     for(int i = 0; i < 4; i++){
@@ -27,7 +28,7 @@ public class Juego{
       fill(0);
       textSize(30);
       textAlign(CENTER, CENTER);
-      text("Ganó el jugador 2",width/2.0, height/2.0);
+      text("Ganó el jugador 1",width/2.0, height/2.0);
     }
     if(chocar() == 1){
       imageMode(CORNER);
@@ -38,7 +39,7 @@ public class Juego{
       fill(0);
       textSize(30);
       textAlign(CENTER, CENTER);
-      text("Ganó el jugador 1",width/2.0, height/2.0);
+      text("Ganó el jugador 2",width/2.0, height/2.0);
     }
   }
   public void dibuja(){

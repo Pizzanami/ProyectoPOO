@@ -3,6 +3,7 @@ public class Menu{
   Video video;
   Arduino controles;
   int estado, lastB;
+  long lastT;
   Menu(){
     video = new Video();
     controles = new Arduino();
@@ -24,6 +25,7 @@ public class Menu{
     //println(boton);
     if(boton == 1){
       lastB = 1;
+      lastT = millis();
     }
     if(boton == 2){
       lastB = 2;
@@ -38,9 +40,10 @@ public class Menu{
         if(estado == 2){
           video = new Video();
         }
-        video.newVideo();
-        estado = 0;
-      }
+          video.newVideo();
+          estado = 0;
+        }
+      
       lastB = 0;
     }
   }

@@ -1,20 +1,26 @@
 public class Video {
   public int vid =1;
-  int cuadros=1;
-  float sanic=1.0;
-  String noVideo;
-
+  private int cuadros=1;
+  private float sanic=1.0, lastP;
+  private long lastT;
+  private String noVideo;
+  private int x;
   Video() {
+    lastP = 0;
+    lastT = -1001;
   };
   void ejecutar()
   {
-    sanic=(menu.controles.getPotenciometroDer()+1)/512;
-    println(sanic);
+    if(lastP != (menu.controles.getPotenciometroDer()+1)/512.0 && millis()-lastT > 1000){
+      lastT = millis(); 
+      lastP = (menu.controles.getPotenciometroDer()+1)/512.0;
+      sanic = (menu.controles.getPotenciometroDer()+1)/512.0;
+    }
     cuadros=(menu.controles.getPotenciometroIzq()+1)/100;
     if(cuadros==0)
     cuadros=1;
     movie.loop();
-    movie.speed(sanic);  
+    //movie.speed(sanic);  
     imageMode(CENTER);
     dibujaM();
     grid();
@@ -31,6 +37,8 @@ public class Video {
     chngVideo(noVideo);
   }
 
+
+  
   void plusPlus() {
     cuadros=(menu.controles.getPotenciometroIzq()+1)/1000;
   }
