@@ -7,10 +7,14 @@ public class Runner{
     cx = new float[5];
     cy = new float[5];
     this.id = id;
-    if(id==0)
+    if(id==0){
       x = width/4;
-    else
+      nx = x;
+    }
+    else{
       x = (width*3)/4;
+      nx = x;
+    }
     d = width/20.0;
     y = height - d;
     r = int(random(60, 255));
@@ -38,10 +42,17 @@ public class Runner{
     mover();
   }
   public void mover(){
-    
-    //if(nx != valor del potenciometro*width/1024)
-      nx = random(0,1024)*width/1024;
-    x += (nx-x)/5.0;
+    if(id == 0){
+      if(nx != menu.controles.getPotenciometroIzq()*width/1024){
+        nx = menu.controles.getPotenciometroIzq()*width/1024;
+      }
+      x += (nx-x)/5.0;
+    }
+    if(id == 1){
+      if(nx != menu.controles.getPotenciometroDer()*width/1024)
+        nx = menu.controles.getPotenciometroDer()*width/1024;
+      x += (nx-x)/5.0;
+    }
   }
   public float enX(int id){
     return -cx[id]+x;

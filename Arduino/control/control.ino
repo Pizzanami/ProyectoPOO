@@ -10,11 +10,13 @@ pinMode(13,OUTPUT);
 
 void loop() {
       digitalWrite(13,0);
-  Serial.print(1023-pot1.valor());
+  Serial.print("[");
+  Serial.print(pot1.valor());
   Serial.print(",");
-  Serial.print(pot2.valor());
+  Serial.print(1023-pot2.valor());
   Serial.print(",");
   Serial.print(boton.check());
+   Serial.print(".");
  // Serial.print(",");
   //Serial.print(boton.isPressed());
   Serial.print("\n");

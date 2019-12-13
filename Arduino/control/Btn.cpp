@@ -25,7 +25,7 @@ int Btn::check() {
     return 0;
   }
   else {
-    tiempoMostrando = millis()+100;
+    tiempoMostrando = millis()+300;
     if (!isPressed()) {
       listo = true;
       if (millis() - tiempoBtn < 300) {

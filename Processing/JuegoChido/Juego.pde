@@ -2,6 +2,7 @@ public class Juego{
   Obstaculo a[];
   Runner player[];
   PImage fondo;
+  int time = 20;
   Juego(){
     a = new Obstaculo[4];
     player = new Runner[2];
@@ -13,10 +14,14 @@ public class Juego{
     fondo = loadImage("fondo.gif");
   }
   public void ejecutar(){
+    //menu.controles.leer();
+    //println(menu.controles.getPotenciometroIzq());
     if(chocar() == 2)
       dibuja();
     if(chocar() == 0){
-      image(fondo, 0, 0, width, height);
+      imageMode(CORNER);
+      image(tranz, 0, 0, width, height);
+      tranz.loop();
       fill(255,255,255,100);
       rect(width/3.0, height/3.0, width/3.0, height/3.0);
       fill(0);
@@ -25,7 +30,9 @@ public class Juego{
       text("Ganó el jugador 2",width/2.0, height/2.0);
     }
     if(chocar() == 1){
-      image(fondo, 0, 0, width, height);
+      imageMode(CORNER);
+      image(tranz, 0, 0, width, height);
+      tranz.loop();
       fill(255,255,255,100);
       rect(width/3.0, height/3.0, width/3.0, height/3.0);
       fill(0);
@@ -35,9 +42,13 @@ public class Juego{
     }
   }
   public void dibuja(){
-    for(int i = 0; i < 4; i++){
-      a[i].dib();
+    if(time == 0){
+      for(int i = 0; i < 4; i++){
+        a[i].dib();
+      }
     }
+    else
+      time--;
     player[0].dibuja();
     player[1].dibuja();
   }
