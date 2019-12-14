@@ -33,7 +33,14 @@ public class Runner{
   }
   public void dibuja(){
     fill(r,g,b);
-    noStroke();
+    if(id == 0){
+      stroke(255, 0, 0);
+      strokeWeight(3);
+    }
+    if(id == 1){
+      stroke(0, 0, 255);
+      strokeWeight(3);
+    }
     ellipseMode(CENTER);
     ellipse(x, y, d, d);
     r = int(random(0, 255));

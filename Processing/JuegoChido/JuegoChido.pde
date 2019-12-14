@@ -24,10 +24,10 @@ void chngVideo(String video){
 void movieEvent(Movie movie) {  
   movie.read();
 }
-void mousePressed(){
+/*void mousePressed(){
   menu.video.newVideo(); 
 }
 void keyPressed(){
   menu.video.plusPlus();
   menu.video.speed();
-}
+}*/

@@ -15,14 +15,13 @@ public class Juego{
     fondo = loadImage("fondo.gif");
   }
   public void ejecutar(){
-    //menu.controles.leer();
-    //println(menu.controles.getPotenciometroIzq());
     if(chocar() == 2)
       dibuja();
     if(chocar() == 0){
       imageMode(CORNER);
       image(tranz, 0, 0, width, height);
       tranz.loop();
+      noStroke();
       fill(255,255,255,100);
       rect(width/3.0, height/3.0, width/3.0, height/3.0);
       fill(0);
@@ -34,6 +33,7 @@ public class Juego{
       imageMode(CORNER);
       image(tranz, 0, 0, width, height);
       tranz.loop();
+      noStroke();
       fill(255,255,255,100);
       rect(width/3.0, height/3.0, width/3.0, height/3.0);
       fill(0);

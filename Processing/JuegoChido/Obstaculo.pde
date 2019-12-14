@@ -16,6 +16,7 @@ public class Obstaculo{
     y += v;
     v += 0.005;
     fill(r, g, b);
+    noStroke();
     rectMode(CORNER);
     rect(x, y, w, h);
     if(y > height)

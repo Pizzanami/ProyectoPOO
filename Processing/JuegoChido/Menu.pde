@@ -19,17 +19,26 @@ public class Menu{
     if(estado == 2){
       juego.ejecutar();
     }
-  }
+    if(estado == 1){
+      video.change();
+    }
+    }
   void cambiarEstado(){
     int boton = controles.getBoton();
     //println(boton);
     if(boton == 1){
       lastB = 1;
       lastT = millis();
+      if(estado == 2)
+        lastT+=100;
+      movie.stop();
+      estado = 1;
     }
     if(boton == 2){
       lastB = 2;
     }
+    if(estado == 1 && millis() - lastT < 50)
+      return;
     if(boton == 0){
       if(lastB == 2){
         movie.stop();
@@ -38,13 +47,13 @@ public class Menu{
       }
       if(lastB == 1){
         if(estado == 2){
-          video = new Video();
+          //video = new Video();
         }
           video.newVideo();
           estado = 0;
         }
-      
       lastB = 0;
     }
   }
+  
 } 
