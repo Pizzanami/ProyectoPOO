@@ -79,7 +79,7 @@ public class Video {
   }
   void newVideo()
   {
-    vid=int(random(1, 236));
+    vid=rnd;
     noVideo="../../../Videos/data/"+str(vid)+".mov"; 
     chngVideo(noVideo);
     //movie.speed(sanic); 

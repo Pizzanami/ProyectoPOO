@@ -17,7 +17,9 @@ void setup(){
   menu = new Menu();
 }
 void draw(){
-  
+  rnd ++;
+  if(rnd == 235)
+    rnd = 1;
   background(0);
   menu.ejecutar();
 }
