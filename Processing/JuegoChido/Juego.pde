@@ -21,11 +21,11 @@ public class Juego{
       imageMode(CORNER);
       image(tranz, 0, 0, width, height);
       tranz.loop();
-      noStroke();
+      /*noStroke();
       fill(255,255,255,100);
-      rect(width/3.0, height/3.0, width/3.0, height/3.0);
+      rect(width/3.0, height/3.0, width/3.0, height/3.0);*/
       fill(0);
-      textSize(30);
+      textSize(70);
       textAlign(CENTER, CENTER);
       text("Ganó el jugador 1",width/2.0, height/2.0);
     }
@@ -33,11 +33,11 @@ public class Juego{
       imageMode(CORNER);
       image(tranz, 0, 0, width, height);
       tranz.loop();
-      noStroke();
+      /*noStroke();
       fill(255,255,255,100);
-      rect(width/3.0, height/3.0, width/3.0, height/3.0);
+      rect(width/3.0, height/3.0, width/3.0, height/3.0);*/
       fill(0);
-      textSize(30);
+      textSize(70);
       textAlign(CENTER, CENTER);
       text("Ganó el jugador 2",width/2.0, height/2.0);
     }

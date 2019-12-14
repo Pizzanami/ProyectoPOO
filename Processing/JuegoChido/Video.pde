@@ -105,18 +105,18 @@ void change(){
     if(pot <= 127)
       filter(THRESHOLD);
     else if(pot <= 255)
-      filter(OPAQUE, 50);//
+      filter(OPAQUE);//
     else if(pot <= 383)
       filter(GRAY);
     else if(pot <= 511)
-      filter(INVERT);
+      filter(BLUR);//
     else if(pot <= 639)
-      filter(OPAQUE);
+      filter(INVERT);
     else if(pot <= 767)
-      filter(ERODE, 50);//
+      filter(ERODE);//
     else if(pot <= 895)
-      filter(DILATE, 50);//
+      filter(POSTERIZE, 5);
     else
-      filter(POSTERIZE, 50);
+      filter(DILATE);//
   }
 }
