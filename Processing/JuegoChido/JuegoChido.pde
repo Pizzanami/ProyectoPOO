@@ -3,8 +3,12 @@ import processing.video.*;
 static Movie movie; 
 static Movie tranz; 
 static Serial myPort; 
+
+static int rnd=1;
+
 String video;
 Menu menu;
+
 void setup(){
   myPort = new Serial(this, Serial.list()[0], 115200);
   movie= new Movie(this, "../../../Videos/data/1.mov");
@@ -13,6 +17,7 @@ void setup(){
   menu = new Menu();
 }
 void draw(){
+  
   background(0);
   menu.ejecutar();
 }

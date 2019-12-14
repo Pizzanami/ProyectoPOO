@@ -79,7 +79,7 @@ public class Video {
   }
   void newVideo()
   {
-    vid=int(random(1, 215));
+    vid=int(random(1, 236));
     noVideo="../../../Videos/data/"+str(vid)+".mov"; 
     chngVideo(noVideo);
     //movie.speed(sanic); 
@@ -102,21 +102,15 @@ void change(){
     {
       image(movie, width/2-486 + (i%cuadros)*(972/cuadros), height/2-360 + (i/cuadros)*(720/cuadros), 972/cuadros, 720/cuadros);
     }
-    if(pot <= 127)
-      filter(THRESHOLD);
-    else if(pot <= 255)
-      filter(OPAQUE);//
-    else if(pot <= 383)
+    if(pot <= 205)
+      filter(OPAQUE);
+    else if(pot <= 410)
+      filter(THRESHOLD);//
+    else if(pot <= 615)
       filter(GRAY);
-    else if(pot <= 511)
-      filter(BLUR);//
-    else if(pot <= 639)
-      filter(INVERT);
-    else if(pot <= 767)
-      filter(ERODE);//
-    else if(pot <= 895)
+    else if(pot <= 820)
+      filter(INVERT);//
+    else 
       filter(POSTERIZE, 5);
-    else
-      filter(DILATE);//
   }
 }
